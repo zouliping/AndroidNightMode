@@ -40,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.main_nav_item_history:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, NewFragment.getInstance(getString(R.string.navigation_history))).commit();
                         break;
-                    case R.id.main_nav_item_random:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, NewFragment.getInstance(getString(R.string.navigation_random))).commit();
+                    case R.id.main_nav_item_switch_night_mode_1:
+
                         break;
-                    case R.id.main_nav_item_settings:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, NewFragment.getInstance(getString(R.string.navigation_settings))).commit();
+                    case R.id.main_nav_item_switch_night_mode_2:
+
+                        break;
+                    case R.id.main_nav_item_switch_night_mode_3:
+
                         break;
                 }
 

@@ -9,12 +9,17 @@
         <item
             android:id="@+id/main_nav_item_history"
             android:title="@string/navigation_history" />
+
         <item
-            android:id="@+id/main_nav_item_random"
-            android:title="@string/navigation_random" />
+            android:id="@+id/main_nav_item_switch_night_mode_1"
+            android:title="@string/night_mode_set_night_mode" />
         <item
-            android:id="@+id/main_nav_item_settings"
-            android:title="@string/navigation_settings" />
+            android:id="@+id/main_nav_item_switch_night_mode_2"
+            android:title="@string/night_mode_change_theme" />
+        <item
+            android:id="@+id/main_nav_item_switch_night_mode_3"
+            android:title="@string/night_mode_use_night_mode_helper" />
+
     </group>
 
 </menu>
