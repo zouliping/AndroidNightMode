@@ -1,5 +1,8 @@
 package example.org.androidnightmode;
 
+import android.app.UiModeManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +15,14 @@ import example.org.androidnightmode.fragment.NewFragment;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
+    private SharedPreferences config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        config = getSharedPreferences("config", MODE_PRIVATE);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
 
@@ -41,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, NewFragment.getInstance(getString(R.string.navigation_history))).commit();
                         break;
                     case R.id.main_nav_item_switch_night_mode_1:
-
+                        changeNightModeUseUiModeManager();
                         break;
                     case R.id.main_nav_item_switch_night_mode_2:
 
@@ -54,6 +60,31 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void changeNightModeUseUiModeManager() {
+        boolean isNightMode = getMode();
+        isNightMode = !isNightMode;
+        UiModeManager uiManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+        setMode(isNightMode);
+
+        if (isNightMode) {
+            uiManager.enableCarMode(0);
+            uiManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+        }else {
+            uiManager.disableCarMode(0);
+            uiManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+        }
+    }
+
+    private void setMode(boolean isNightMode) {
+        SharedPreferences.Editor editor = config.edit();
+        editor.putBoolean("is_night_mode", isNightMode);
+        editor.commit();
+    }
+
+    private boolean getMode() {
+        return config.getBoolean("is_night_mode", false);
     }
 
     @Override
