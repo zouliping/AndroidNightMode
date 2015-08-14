@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="night_mode_color">#DD4814</color>
+    <color name="night_mode_dark_color">#DD4814</color>
+    <color name="text_color">#999999</color>
+    <color name="main_bg_color">#FFFFFF</color>
+</resources>
