@@ -20,9 +20,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         config = getSharedPreferences("config", MODE_PRIVATE);
+
+        int themeId = getThemeId();
+        if (themeId != 0) {
+            setTheme(themeId);
+        }
+
+        setContentView(R.layout.activity_main);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
 
@@ -50,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         changeNightModeUseUiModeManager();
                         break;
                     case R.id.main_nav_item_switch_night_mode_2:
-
+                        changeNightModeChangeTheme();
                         break;
                     case R.id.main_nav_item_switch_night_mode_3:
 
@@ -85,6 +91,32 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean getMode() {
         return config.getBoolean("is_night_mode", false);
+    }
+
+    private void changeNightModeChangeTheme() {
+        boolean isNightMode = getMode();
+        isNightMode = !isNightMode;
+        setMode(isNightMode);
+        int themeId;
+
+        if (isNightMode) {
+            themeId = R.style.AppTheme_Dark;
+        }else {
+            themeId = R.style.AppTheme;
+        }
+
+        setThemeId(themeId);
+        this.recreate();
+    }
+
+    private void setThemeId(int themeId) {
+        SharedPreferences.Editor editor = config.edit();
+        editor.putInt("theme_id", themeId);
+        editor.commit();
+    }
+
+    private int getThemeId() {
+        return config.getInt("theme_id", 0);
     }
 
     @Override

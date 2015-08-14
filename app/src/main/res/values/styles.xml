@@ -9,4 +9,12 @@
         <item name="android:windowBackground">@color/main_bg_color</item>
     </style>
 
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/night_mode_color_night</item>
+        <item name="colorPrimaryDark">@color/night_mode_dark_color_night</item>
+        <item name="colorAccent">@color/night_mode_color_night</item>
+        <item name="android:windowBackground">@color/main_bg_color_night</item>
+    </style>
+
 </resources>
