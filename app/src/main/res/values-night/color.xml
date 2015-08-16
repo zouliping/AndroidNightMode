@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="night_mode_color">#DD4889</color>
-    <color name="night_mode_dark_color">#DD4889</color>
+    <color name="night_mode_color">#7D4112</color>
+    <color name="night_mode_dark_color">#7D4112</color>
     <color name="text_color">#888888</color>
     <color name="main_bg_color">#000000</color>
 </resources>

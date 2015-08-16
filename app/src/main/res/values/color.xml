@@ -6,8 +6,8 @@
     <color name="main_bg_color">#FFFFFF</color>
 
 
-    <color name="night_mode_color_night">#DD4889</color>
-    <color name="night_mode_dark_color_night">#DD4889</color>
+    <color name="night_mode_color_night">#7D4112</color>
+    <color name="night_mode_dark_color_night">#7D4112</color>
     <color name="text_color_night">#888888</color>
     <color name="main_bg_color_night">#000000</color>
 </resources>
