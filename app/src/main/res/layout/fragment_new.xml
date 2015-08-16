@@ -6,6 +6,7 @@
 
     <TextView
         android:id="@+id/new_text"
+        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
