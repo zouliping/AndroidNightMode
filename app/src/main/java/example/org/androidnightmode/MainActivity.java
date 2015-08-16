@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         if (isNightMode) {
             themeId = R.style.AppTheme_Dark;
         }else {
-            themeId = R.style.AppTheme;
+            themeId = R.style.AppTheme_Light;
         }
 
         setThemeId(themeId);
