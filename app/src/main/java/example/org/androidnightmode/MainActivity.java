@@ -17,9 +17,13 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private SharedPreferences config;
 
+    private NightModeHelper mNightModeHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mNightModeHelper = new NightModeHelper(this, R.style.AppTheme_Light);
 
         config = getSharedPreferences("config", MODE_PRIVATE);
 
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         changeNightModeChangeTheme();
                         break;
                     case R.id.main_nav_item_switch_night_mode_3:
-
+                        mNightModeHelper.toggle();
                         break;
                 }
 
